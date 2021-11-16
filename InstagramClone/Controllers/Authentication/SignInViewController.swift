@@ -35,10 +35,13 @@ class SignInViewController: UIViewController {
     
     
     @IBAction func loginDidTapped(_ sender: UIButton) {
-        guard let email = emailTextField.text,
-              let password = passwordTextField.text else { return }
-        print("email: \(email)")
-        print("password: \(password)")
+        let vc = TabbarController()
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.present(vc, animated: true)
+//        guard let email = emailTextField.text,
+//              let password = passwordTextField.text else { return }
+//        print("email: \(email)")
+//        print("password: \(password)")
     }
     
     @IBAction func signUpDidTapped(_ sender: UIButton) {

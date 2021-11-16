@@ -18,6 +18,8 @@
 		CE25272C2743F345008888AF /* ActivitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE25272A2743F345008888AF /* ActivitiesViewController.xib */; };
 		CE25272F2743F34F008888AF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25272D2743F34F008888AF /* ProfileViewController.swift */; };
 		CE2527302743F34F008888AF /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE25272E2743F34F008888AF /* ProfileViewController.xib */; };
+		CE62A2C22744268500B17C75 /* PostCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62A2C02744268500B17C75 /* PostCollectionViewCell.swift */; };
+		CE62A2C32744268500B17C75 /* PostCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE62A2C12744268500B17C75 /* PostCollectionViewCell.xib */; };
 		CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F74273FBAAE00D2688E /* AppDelegate.swift */; };
 		CECA4F77273FBAAE00D2688E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F76273FBAAE00D2688E /* SceneDelegate.swift */; };
 		CECA4F7E273FBAB100D2688E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F7D273FBAB100D2688E /* Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		CE25272A2743F345008888AF /* ActivitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivitiesViewController.xib; sourceTree = "<group>"; };
 		CE25272D2743F34F008888AF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CE25272E2743F34F008888AF /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		CE62A2C02744268500B17C75 /* PostCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE62A2C12744268500B17C75 /* PostCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostCollectionViewCell.xib; sourceTree = "<group>"; };
 		CECA4F71273FBAAE00D2688E /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECA4F74273FBAAE00D2688E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CECA4F76273FBAAE00D2688E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +102,23 @@
 			path = App;
 			sourceTree = "<group>";
 		};
+		CE62A2BE2744266000B17C75 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE62A2BF2744266B00B17C75 /* Cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE62A2BF2744266B00B17C75 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				CE62A2C02744268500B17C75 /* PostCollectionViewCell.swift */,
+				CE62A2C12744268500B17C75 /* PostCollectionViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		CECA4F68273FBAAD00D2688E = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +143,7 @@
 				CECA4F7D273FBAB100D2688E /* Assets.xcassets */,
 				CECA4F7F273FBAB100D2688E /* LaunchScreen.storyboard */,
 				CECA4F82273FBAB100D2688E /* Info.plist */,
+				CE62A2BE2744266000B17C75 /* Views */,
 				CECA4F8C273FBC7F00D2688E /* Controllers */,
 			);
 			path = InstagramClone;
@@ -203,6 +225,7 @@
 				CE2527282743F33A008888AF /* AddViewController.xib in Resources */,
 				CECA4F7E273FBAB100D2688E /* Assets.xcassets in Resources */,
 				CE2527302743F34F008888AF /* ProfileViewController.xib in Resources */,
+				CE62A2C32744268500B17C75 /* PostCollectionViewCell.xib in Resources */,
 				CE25272C2743F345008888AF /* ActivitiesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,6 +245,7 @@
 				CECA4F8A273FBC7900D2688E /* SignInViewController.swift in Sources */,
 				CE25272F2743F34F008888AF /* ProfileViewController.swift in Sources */,
 				CE2527232743F330008888AF /* InterestingViewController.swift in Sources */,
+				CE62A2C22744268500B17C75 /* PostCollectionViewCell.swift in Sources */,
 				CE25272B2743F345008888AF /* ActivitiesViewController.swift in Sources */,
 				CEE751232743E91500DF4B9D /* SignUpViewController.swift in Sources */,
 				CE25271F2743F322008888AF /* FeedViewController.swift in Sources */,
