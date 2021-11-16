@@ -6,8 +6,18 @@
 //
 
 import UIKit
+import FirebaseAuth
+import SVProgressHUD
+
+protocol SignUpDelegate: AnyObject {
+    func signUpSuccessfully()
+}
 
 class SignUpViewController: UIViewController {
+    
+    // MARK: - Data
+    
+    weak var delegate: SignUpDelegate?
     
     // MARK: - Views
     
@@ -42,12 +52,19 @@ class SignUpViewController: UIViewController {
     
     @IBAction
     func signUpButtonDidTapped(_ sender: Any) {
-        guard let username = usernameTextField.text,
-              let email = emailTextField.text,
+        guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
-        print("username: \(username)")
-        print("email: \(email)")
-        print("password: \(password)")
+        SVProgressHUD.show()
+        
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (authResult, error) in
+            if let error = error {
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+                return
+            }
+            SVProgressHUD.dismiss()
+            self?.dismiss(animated: true)
+            self?.delegate?.signUpSuccessfully()
+        }
     }
     
 

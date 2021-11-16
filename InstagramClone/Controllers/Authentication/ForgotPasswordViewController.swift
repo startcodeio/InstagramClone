@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import SVProgressHUD
 
 class ForgotPasswordViewController: UIViewController {
 
@@ -34,7 +36,15 @@ class ForgotPasswordViewController: UIViewController {
     
     @IBAction func recoverButtonDidTapped(_ sender: Any) {
         guard let email = emailTextField.text else { return }
-        print("email: \(email)")
+        
+        SVProgressHUD.show()
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            if let error = error {
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+            }
+            
+            SVProgressHUD.showSuccess(withStatus: "Sended")
+        }
     }
     
 

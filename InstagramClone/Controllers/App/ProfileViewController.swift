@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        navigationItem.title = "Profile @username"
+        
+        if let email = Auth.auth().currentUser?.email {
+            navigationItem.title = "Profile: \(email)"
+        } else {
+            navigationItem.title = "Profile"
+        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "hand.wave"), style: .done, target: self, action: #selector(logOutDidTapped))
     }
@@ -21,7 +26,12 @@ class ProfileViewController: UIViewController {
     
     @objc
     private func logOutDidTapped() {
-        dismiss(animated: true)
+        do {
+            try Auth.auth().signOut()
+            dismiss(animated: true)
+        } catch {
+            debugPrint(error)
+        }
     }
 
 }

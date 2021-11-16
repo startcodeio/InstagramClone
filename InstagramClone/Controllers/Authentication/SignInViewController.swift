@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import SVProgressHUD
 
 class SignInViewController: UIViewController {
     
@@ -23,31 +25,61 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
 
         loginButton.layer.cornerRadius = 5
+        
+        if Auth.auth().currentUser != nil {
+            navigateToApp()
+        }
     }
     
     // MARK: - Handlers
     
-    @IBAction func forgotPasswordDidTapped(_ sender: UIButton) {
+    @IBAction
+    func forgotPasswordDidTapped(_ sender: UIButton) {
         let vc = ForgotPasswordViewController()
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true)
     }
     
     
-    @IBAction func loginDidTapped(_ sender: UIButton) {
-        let vc = TabbarController()
-        vc.modalPresentationStyle = .fullScreen
-        navigationController?.present(vc, animated: true)
-//        guard let email = emailTextField.text,
-//              let password = passwordTextField.text else { return }
-//        print("email: \(email)")
-//        print("password: \(password)")
+    @IBAction
+    func loginDidTapped(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else { return }
+        
+        SVProgressHUD.show()
+        
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] (authResult, error) in
+            if let error = error {
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+                return
+            }
+            SVProgressHUD.dismiss()
+            self?.navigateToApp()
+        }
     }
     
-    @IBAction func signUpDidTapped(_ sender: UIButton) {
+    @IBAction
+    func signUpDidTapped(_ sender: UIButton) {
         let vc = SignUpViewController()
+        vc.delegate = self
         let nav = UINavigationController(rootViewController: vc)
         navigationController?.present(nav, animated: true)
     }
+    
+    // MARK: - Methods
+    
+    private func navigateToApp() {
+        let vc = TabbarController()
+        vc.modalPresentationStyle = .fullScreen
+        navigationController?.present(vc, animated: true)
+    }
 
+}
+
+extension SignInViewController: SignUpDelegate {
+    
+    func signUpSuccessfully() {
+        navigateToApp()
+    }
+    
 }

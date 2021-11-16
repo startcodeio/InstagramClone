@@ -10,5 +10,8 @@ target 'InstagramClone' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Firebase/Storage'
+  
+  # Helpers
+  pod 'SVProgressHUD'
 
 end
