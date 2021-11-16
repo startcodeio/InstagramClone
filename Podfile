@@ -9,6 +9,7 @@ target 'InstagramClone' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift', '8.3.0-beta'
   pod 'Firebase/Storage'
   
   # Helpers

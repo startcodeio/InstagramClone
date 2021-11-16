@@ -30,6 +30,7 @@
 		CECA4F8B273FBC7900D2688E /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F89273FBC7800D2688E /* SignInViewController.xib */; };
 		CECA4F8F273FC5C200D2688E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F8D273FC5C200D2688E /* ForgotPasswordViewController.swift */; };
 		CECA4F90273FC5C200D2688E /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F8E273FC5C200D2688E /* ForgotPasswordViewController.xib */; };
+		CED2820D27444069008BD056 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2820C27444069008BD056 /* User.swift */; };
 		CEE751232743E91500DF4B9D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE751212743E91500DF4B9D /* SignUpViewController.swift */; };
 		CEE751242743E91500DF4B9D /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE751222743E91500DF4B9D /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
@@ -62,6 +63,7 @@
 		CECA4F89273FBC7800D2688E /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		CECA4F8D273FC5C200D2688E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		CECA4F8E273FC5C200D2688E /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		CED2820C27444069008BD056 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CEE751212743E91500DF4B9D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEE751222743E91500DF4B9D /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +125,6 @@
 				08FE22F4E492819E42A44303 /* Pods-InstagramClone.debug.xcconfig */,
 				5A01E92AC9CF898E289B17D5 /* Pods-InstagramClone.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -171,6 +172,7 @@
 				CECA4F7F273FBAB100D2688E /* LaunchScreen.storyboard */,
 				CECA4F82273FBAB100D2688E /* Info.plist */,
 				CE62A2C427442E8000B17C75 /* GoogleService-Info.plist */,
+				CED2820B27444060008BD056 /* Models */,
 				CE62A2BE2744266000B17C75 /* Views */,
 				CECA4F8C273FBC7F00D2688E /* Controllers */,
 			);
@@ -184,6 +186,14 @@
 				CE2527322743F370008888AF /* App */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CED2820B27444060008BD056 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CED2820C27444069008BD056 /* User.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,6 +320,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED2820D27444069008BD056 /* User.swift in Sources */,
 				CECA4F8F273FC5C200D2688E /* ForgotPasswordViewController.swift in Sources */,
 				CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */,
 				CE2527272743F33A008888AF /* AddViewController.swift in Sources */,
