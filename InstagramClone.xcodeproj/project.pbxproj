@@ -1,0 +1,441 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CE25271C2743F0FB008888AF /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25271B2743F0FB008888AF /* TabbarController.swift */; };
+		CE25271F2743F322008888AF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25271D2743F322008888AF /* FeedViewController.swift */; };
+		CE2527202743F322008888AF /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE25271E2743F322008888AF /* FeedViewController.xib */; };
+		CE2527232743F330008888AF /* InterestingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2527212743F330008888AF /* InterestingViewController.swift */; };
+		CE2527242743F330008888AF /* InterestingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2527222743F330008888AF /* InterestingViewController.xib */; };
+		CE2527272743F33A008888AF /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2527252743F33A008888AF /* AddViewController.swift */; };
+		CE2527282743F33A008888AF /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE2527262743F33A008888AF /* AddViewController.xib */; };
+		CE25272B2743F345008888AF /* ActivitiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2527292743F344008888AF /* ActivitiesViewController.swift */; };
+		CE25272C2743F345008888AF /* ActivitiesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE25272A2743F345008888AF /* ActivitiesViewController.xib */; };
+		CE25272F2743F34F008888AF /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25272D2743F34F008888AF /* ProfileViewController.swift */; };
+		CE2527302743F34F008888AF /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE25272E2743F34F008888AF /* ProfileViewController.xib */; };
+		CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F74273FBAAE00D2688E /* AppDelegate.swift */; };
+		CECA4F77273FBAAE00D2688E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F76273FBAAE00D2688E /* SceneDelegate.swift */; };
+		CECA4F7E273FBAB100D2688E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F7D273FBAB100D2688E /* Assets.xcassets */; };
+		CECA4F81273FBAB100D2688E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F7F273FBAB100D2688E /* LaunchScreen.storyboard */; };
+		CECA4F8A273FBC7900D2688E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F88273FBC7800D2688E /* SignInViewController.swift */; };
+		CECA4F8B273FBC7900D2688E /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F89273FBC7800D2688E /* SignInViewController.xib */; };
+		CECA4F8F273FC5C200D2688E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F8D273FC5C200D2688E /* ForgotPasswordViewController.swift */; };
+		CECA4F90273FC5C200D2688E /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F8E273FC5C200D2688E /* ForgotPasswordViewController.xib */; };
+		CEE751232743E91500DF4B9D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE751212743E91500DF4B9D /* SignUpViewController.swift */; };
+		CEE751242743E91500DF4B9D /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE751222743E91500DF4B9D /* SignUpViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CE25271B2743F0FB008888AF /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
+		CE25271D2743F322008888AF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		CE25271E2743F322008888AF /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
+		CE2527212743F330008888AF /* InterestingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterestingViewController.swift; sourceTree = "<group>"; };
+		CE2527222743F330008888AF /* InterestingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InterestingViewController.xib; sourceTree = "<group>"; };
+		CE2527252743F33A008888AF /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		CE2527262743F33A008888AF /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
+		CE2527292743F344008888AF /* ActivitiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivitiesViewController.swift; sourceTree = "<group>"; };
+		CE25272A2743F345008888AF /* ActivitiesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivitiesViewController.xib; sourceTree = "<group>"; };
+		CE25272D2743F34F008888AF /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		CE25272E2743F34F008888AF /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
+		CECA4F71273FBAAE00D2688E /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CECA4F74273FBAAE00D2688E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CECA4F76273FBAAE00D2688E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CECA4F7D273FBAB100D2688E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CECA4F80273FBAB100D2688E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CECA4F82273FBAB100D2688E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CECA4F88273FBC7800D2688E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CECA4F89273FBC7800D2688E /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		CECA4F8D273FC5C200D2688E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		CECA4F8E273FC5C200D2688E /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
+		CEE751212743E91500DF4B9D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		CEE751222743E91500DF4B9D /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CECA4F6E273FBAAD00D2688E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CE2527312743F355008888AF /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CECA4F88273FBC7800D2688E /* SignInViewController.swift */,
+				CECA4F89273FBC7800D2688E /* SignInViewController.xib */,
+				CEE751212743E91500DF4B9D /* SignUpViewController.swift */,
+				CEE751222743E91500DF4B9D /* SignUpViewController.xib */,
+				CECA4F8D273FC5C200D2688E /* ForgotPasswordViewController.swift */,
+				CECA4F8E273FC5C200D2688E /* ForgotPasswordViewController.xib */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		CE2527322743F370008888AF /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CE25271B2743F0FB008888AF /* TabbarController.swift */,
+				CE25271D2743F322008888AF /* FeedViewController.swift */,
+				CE25271E2743F322008888AF /* FeedViewController.xib */,
+				CE2527212743F330008888AF /* InterestingViewController.swift */,
+				CE2527222743F330008888AF /* InterestingViewController.xib */,
+				CE2527252743F33A008888AF /* AddViewController.swift */,
+				CE2527262743F33A008888AF /* AddViewController.xib */,
+				CE2527292743F344008888AF /* ActivitiesViewController.swift */,
+				CE25272A2743F345008888AF /* ActivitiesViewController.xib */,
+				CE25272D2743F34F008888AF /* ProfileViewController.swift */,
+				CE25272E2743F34F008888AF /* ProfileViewController.xib */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CECA4F68273FBAAD00D2688E = {
+			isa = PBXGroup;
+			children = (
+				CECA4F73273FBAAE00D2688E /* InstagramClone */,
+				CECA4F72273FBAAE00D2688E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CECA4F72273FBAAE00D2688E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CECA4F71273FBAAE00D2688E /* InstagramClone.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CECA4F73273FBAAE00D2688E /* InstagramClone */ = {
+			isa = PBXGroup;
+			children = (
+				CECA4F74273FBAAE00D2688E /* AppDelegate.swift */,
+				CECA4F76273FBAAE00D2688E /* SceneDelegate.swift */,
+				CECA4F7D273FBAB100D2688E /* Assets.xcassets */,
+				CECA4F7F273FBAB100D2688E /* LaunchScreen.storyboard */,
+				CECA4F82273FBAB100D2688E /* Info.plist */,
+				CECA4F8C273FBC7F00D2688E /* Controllers */,
+			);
+			path = InstagramClone;
+			sourceTree = "<group>";
+		};
+		CECA4F8C273FBC7F00D2688E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE2527312743F355008888AF /* Authentication */,
+				CE2527322743F370008888AF /* App */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CECA4F70273FBAAD00D2688E /* InstagramClone */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CECA4F85273FBAB100D2688E /* Build configuration list for PBXNativeTarget "InstagramClone" */;
+			buildPhases = (
+				CECA4F6D273FBAAD00D2688E /* Sources */,
+				CECA4F6E273FBAAD00D2688E /* Frameworks */,
+				CECA4F6F273FBAAD00D2688E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = InstagramClone;
+			productName = InstagramClone;
+			productReference = CECA4F71273FBAAE00D2688E /* InstagramClone.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CECA4F69273FBAAD00D2688E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					CECA4F70273FBAAD00D2688E = {
+						CreatedOnToolsVersion = 13.0;
+					};
+				};
+			};
+			buildConfigurationList = CECA4F6C273FBAAD00D2688E /* Build configuration list for PBXProject "InstagramClone" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CECA4F68273FBAAD00D2688E;
+			productRefGroup = CECA4F72273FBAAE00D2688E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CECA4F70273FBAAD00D2688E /* InstagramClone */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CECA4F6F273FBAAD00D2688E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CEE751242743E91500DF4B9D /* SignUpViewController.xib in Resources */,
+				CECA4F90273FC5C200D2688E /* ForgotPasswordViewController.xib in Resources */,
+				CECA4F81273FBAB100D2688E /* LaunchScreen.storyboard in Resources */,
+				CECA4F8B273FBC7900D2688E /* SignInViewController.xib in Resources */,
+				CE2527242743F330008888AF /* InterestingViewController.xib in Resources */,
+				CE2527202743F322008888AF /* FeedViewController.xib in Resources */,
+				CE2527282743F33A008888AF /* AddViewController.xib in Resources */,
+				CECA4F7E273FBAB100D2688E /* Assets.xcassets in Resources */,
+				CE2527302743F34F008888AF /* ProfileViewController.xib in Resources */,
+				CE25272C2743F345008888AF /* ActivitiesViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CECA4F6D273FBAAD00D2688E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CECA4F8F273FC5C200D2688E /* ForgotPasswordViewController.swift in Sources */,
+				CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */,
+				CE2527272743F33A008888AF /* AddViewController.swift in Sources */,
+				CE25271C2743F0FB008888AF /* TabbarController.swift in Sources */,
+				CECA4F77273FBAAE00D2688E /* SceneDelegate.swift in Sources */,
+				CECA4F8A273FBC7900D2688E /* SignInViewController.swift in Sources */,
+				CE25272F2743F34F008888AF /* ProfileViewController.swift in Sources */,
+				CE2527232743F330008888AF /* InterestingViewController.swift in Sources */,
+				CE25272B2743F345008888AF /* ActivitiesViewController.swift in Sources */,
+				CEE751232743E91500DF4B9D /* SignUpViewController.swift in Sources */,
+				CE25271F2743F322008888AF /* FeedViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CECA4F7F273FBAB100D2688E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CECA4F80273FBAB100D2688E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CECA4F83273FBAB100D2688E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CECA4F84273FBAB100D2688E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CECA4F86273FBAB100D2688E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 592GN4T7BY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InstagramClone/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.startcode.InstagramClone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CECA4F87273FBAB100D2688E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 592GN4T7BY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = InstagramClone/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.startcode.InstagramClone;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CECA4F6C273FBAAD00D2688E /* Build configuration list for PBXProject "InstagramClone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CECA4F83273FBAB100D2688E /* Debug */,
+				CECA4F84273FBAB100D2688E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CECA4F85273FBAB100D2688E /* Build configuration list for PBXNativeTarget "InstagramClone" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CECA4F86273FBAB100D2688E /* Debug */,
+				CECA4F87273FBAB100D2688E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CECA4F69273FBAAD00D2688E /* Project object */;
+}
