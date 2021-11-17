@@ -13,6 +13,7 @@ target 'InstagramClone' do
   pod 'Firebase/Storage'
   
   # Helpers
-  pod 'SVProgressHUD'
+  pod 'SVProgressHUD' # Loading and alert messaging HUD
+  pod 'Kingfisher'    # Image loading
 
 end
