@@ -46,14 +46,14 @@ class SignInViewController: UIViewController {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else { return }
         
-        SVProgressHUD.show()
+        showHUD()
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] (authResult, error) in
             if let error = error {
-                SVProgressHUD.showError(withStatus: error.localizedDescription)
+                self?.showHUD(.error(text: error.localizedDescription))
                 return
             }
-            SVProgressHUD.dismiss()
+            self?.showHUD(.dismiss)
             self?.navigateToApp()
         }
     }

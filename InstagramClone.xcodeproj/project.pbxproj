@@ -31,6 +31,7 @@
 		CECA4F8F273FC5C200D2688E /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F8D273FC5C200D2688E /* ForgotPasswordViewController.swift */; };
 		CECA4F90273FC5C200D2688E /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F8E273FC5C200D2688E /* ForgotPasswordViewController.xib */; };
 		CED2820D27444069008BD056 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2820C27444069008BD056 /* User.swift */; };
+		CED282102745125E008BD056 /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2820F2745125E008BD056 /* UIViewControllerExtention.swift */; };
 		CEE751232743E91500DF4B9D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE751212743E91500DF4B9D /* SignUpViewController.swift */; };
 		CEE751242743E91500DF4B9D /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE751222743E91500DF4B9D /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
@@ -64,6 +65,7 @@
 		CECA4F8D273FC5C200D2688E /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		CECA4F8E273FC5C200D2688E /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		CED2820C27444069008BD056 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CED2820F2745125E008BD056 /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
 		CEE751212743E91500DF4B9D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEE751222743E91500DF4B9D /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -175,6 +177,7 @@
 				CED2820B27444060008BD056 /* Models */,
 				CE62A2BE2744266000B17C75 /* Views */,
 				CECA4F8C273FBC7F00D2688E /* Controllers */,
+				CED2820E27451248008BD056 /* Extensions */,
 			);
 			path = InstagramClone;
 			sourceTree = "<group>";
@@ -194,6 +197,14 @@
 				CED2820C27444069008BD056 /* User.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		CED2820E27451248008BD056 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CED2820F2745125E008BD056 /* UIViewControllerExtention.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,6 +335,7 @@
 				CECA4F8F273FC5C200D2688E /* ForgotPasswordViewController.swift in Sources */,
 				CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */,
 				CE2527272743F33A008888AF /* AddViewController.swift in Sources */,
+				CED282102745125E008BD056 /* UIViewControllerExtention.swift in Sources */,
 				CE25271C2743F0FB008888AF /* TabbarController.swift in Sources */,
 				CECA4F77273FBAAE00D2688E /* SceneDelegate.swift in Sources */,
 				CECA4F8A273FBC7900D2688E /* SignInViewController.swift in Sources */,

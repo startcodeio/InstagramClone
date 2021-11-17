@@ -151,10 +151,12 @@ class SignUpViewController: UIViewController {
 }
 
 extension SignUpViewController: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         guard let image = info[.editedImage] as? UIImage else { return }
         self.image = image
         avatarImageView.image = image
         pickerController.dismiss(animated: true)
     }
+    
 }
