@@ -188,6 +188,7 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
                 return
             }
             self.incrementUsersCounters(startFollowing: !isIFollowing)
+            self.createActivity(startFollowing: !isIFollowing)
             self.isIFollowing?.toggle()
             self.collectionView.reloadData()
         }
@@ -200,6 +201,25 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
             .updateData(["counters.followings": FieldValue.increment(Int64(startFollowing ? 1 : -1))])
         Firestore.firestore().collection("users").document(uid)
             .updateData(["counters.followers": FieldValue.increment(Int64(startFollowing ? 1 : -1))])
+    }
+    
+    private func createActivity(startFollowing: Bool) {
+        let ref = Firestore.firestore().collection("activities").document()
+        
+        let activity = Activity(id: ref.documentID,
+                                author: Helpers.author,
+                                linkId: uid,
+                                toUid: uid,
+                                type: ActivityType.follow.rawValue,
+                                isRead: false,
+                                publishDate: Timestamp(date: Date()))
+        if startFollowing {
+            do {
+                try ref.setData(from: activity)
+            } catch {
+                showHUD(.error(text: "Activity not created! \(error.localizedDescription)"))
+            }
+        }
     }
     
 }
