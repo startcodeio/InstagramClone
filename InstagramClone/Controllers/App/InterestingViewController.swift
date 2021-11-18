@@ -30,6 +30,7 @@ class InterestingViewController: UIViewController {
     
     private func fetchPosts() {
         let ref = Firestore.firestore().collection("posts")
+            .order(by: "users.liked", descending: true)
         ref.getDocuments { querySnapshot, error in
             if let error = error {
                 self.showHUD(.error(text: error.localizedDescription))
