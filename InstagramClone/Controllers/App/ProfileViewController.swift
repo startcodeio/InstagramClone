@@ -17,6 +17,8 @@ class ProfileViewController: UIViewController {
     
     private var user: User?
     
+    private var posts: [Post] = []
+    
     // MARK: - Views
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -27,6 +29,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         configureLayout()
         listenUser()
+        fetchPosts()
     }
     
     init() {
@@ -74,6 +77,31 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    private func fetchPosts() {
+        let ref = Firestore.firestore().collection("posts").whereField("author.uid", isEqualTo: uid)
+        ref.getDocuments { querySnapshot, error in
+            if let error = error {
+                self.showHUD(.error(text: error.localizedDescription))
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                self.showHUD(.error(text: "Documents not found"))
+                return
+            }
+            
+            for document in documents {
+                do {
+                    let post = try document.data(as: Post.self)
+                    self.posts.append(post!)
+                } catch {
+                    print("error with \(document.documentID) \(error)")
+                }
+            }
+            self.collectionView.reloadData()
+        }
+    }
+    
     // MARK: - Layout
     
     private func configureLayout() {
@@ -86,6 +114,8 @@ class ProfileViewController: UIViewController {
         collectionView.register(UINib(nibName: "ProfileHeaderCollectionReusableView", bundle: nil),
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: "ProfileHeaderCollectionReusableView")
+        collectionView.register(UINib(nibName: "PostGridCollectionViewCell", bundle: nil),
+                                forCellWithReuseIdentifier: "PostGridCollectionViewCell")
         collectionView.register(UINib(nibName: "PostListCollectionViewCell", bundle: nil),
                                 forCellWithReuseIdentifier: "PostListCollectionViewCell")
     }
@@ -94,16 +124,26 @@ class ProfileViewController: UIViewController {
 
 extension ProfileViewController: UICollectionViewDelegate {
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+    
 }
 
 extension ProfileViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        0
+        posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostListCollectionViewCell", for: indexPath) as! PostListCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostGridCollectionViewCell", for: indexPath) as! PostGridCollectionViewCell
+        
+        if posts.count > indexPath.row {
+            let post = posts[indexPath.row]
+            cell.setup(post)
+        }
+        
         return cell
     }
     
@@ -120,6 +160,19 @@ extension ProfileViewController: UICollectionViewDataSource {
 }
 
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (view.frame.width - 2) / 3
+        return CGSize(width: width, height: width)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         
