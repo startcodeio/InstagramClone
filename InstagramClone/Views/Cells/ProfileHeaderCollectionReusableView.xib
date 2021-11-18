@@ -101,6 +101,9 @@
                     <state key="normal" title="Button">
                         <color key="titleColor" systemColor="labelColor"/>
                     </state>
+                    <connections>
+                        <action selector="primaryButtonDidTapped:" destination="U6b-Vx-4bR" eventType="touchUpInside" id="5eG-XD-FCN"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>
@@ -123,8 +126,11 @@
                 <outlet property="avatarImageView" destination="nYj-fW-J9d" id="kdJ-WK-rYv"/>
                 <outlet property="bioLabel" destination="e4W-rL-eQZ" id="V8o-gC-lUN"/>
                 <outlet property="followersCounterLabel" destination="Jzo-y0-495" id="vR4-mV-iir"/>
+                <outlet property="followersStackView" destination="uPe-8a-P9h" id="LsR-AQ-abH"/>
                 <outlet property="followingsCounterLabel" destination="AHU-a4-AA3" id="Ni9-mx-hFx"/>
+                <outlet property="followingsStackView" destination="ucc-Sk-8ew" id="xuY-JS-UHL"/>
                 <outlet property="postsCounterLabel" destination="4Vv-Qb-iWm" id="mYB-k0-kdK"/>
+                <outlet property="postsStackView" destination="FLs-PP-n7h" id="emO-2f-J8g"/>
                 <outlet property="primaryButton" destination="V25-OR-tiM" id="6uY-HE-xL2"/>
                 <outlet property="usernameLabel" destination="Ywe-9P-fCS" id="tvA-1X-typ"/>
             </connections>

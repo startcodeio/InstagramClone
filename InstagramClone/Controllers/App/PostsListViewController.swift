@@ -56,29 +56,14 @@ class PostsListViewController: UIViewController {
 
 }
 
-extension PostsListViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell") as! PostTableViewCell
-        if posts.count > indexPath.row {
-            let post = posts[indexPath.row]
-            cell.setup(post)
-            cell.delegate = self
-        }
-        return cell
-    }
-    
-    
-}
+// MARK: - PostTable Delegate
 
 extension PostsListViewController: PostTableViewCellDelegate {
     
     func avatarAction(post: Post) {
-        print("open profile")
+        let vc = ProfileViewController(uid: post.author.uid)
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func likeAction(post: Post, status: Bool) {
@@ -141,5 +126,26 @@ extension PostsListViewController: PostTableViewCellDelegate {
         }
         
     }
+    
+}
+
+// MARK: - TableView DataSource
+
+extension PostsListViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        posts.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell") as! PostTableViewCell
+        if posts.count > indexPath.row {
+            let post = posts[indexPath.row]
+            cell.setup(post)
+            cell.delegate = self
+        }
+        return cell
+    }
+    
     
 }

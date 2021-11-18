@@ -19,6 +19,8 @@ class ProfileViewController: UIViewController {
     
     private var posts: [Post] = []
     
+    private var isIFollowing: Bool?
+    
     // MARK: - Views
 
     @IBOutlet weak var collectionView: UICollectionView!
@@ -29,11 +31,12 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         configureLayout()
         listenUser()
+        fetchMyUser()
         fetchPosts()
     }
     
-    init() {
-        self.uid = Auth.auth().currentUser?.uid ?? "123"
+    init(uid: String = Auth.auth().currentUser?.uid ?? "123") {
+        self.uid = uid
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,13 +47,21 @@ class ProfileViewController: UIViewController {
     // MARK: - Actions
     
     @objc
-    private func logOutDidTapped() {
-        do {
-            try Auth.auth().signOut()
-            dismiss(animated: true)
-        } catch {
-            debugPrint(error)
-        }
+    private func menuDidTapped() {
+        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Sign Out", style: .destructive) { [unowned self] _ in
+            do {
+                try Auth.auth().signOut()
+                self.dismiss(animated: true)
+            } catch {
+                debugPrint(error)
+            }
+        })
+
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+
+        navigationController?.present(alert, animated: true)
     }
     
     // MARK: - Methods
@@ -77,9 +88,34 @@ class ProfileViewController: UIViewController {
         }
     }
     
+    private func fetchMyUser() {
+        let myUid = Auth.auth().currentUser?.uid ?? "123"
+        let ref = Firestore.firestore().collection("users").document(myUid)
+        ref.getDocument { document, error in
+            if let error = error {
+                self.showHUD(.error(text: error.localizedDescription))
+                return
+            }
+            
+            if let document = document, document.exists {
+                do {
+                    let myUser = try document.data(as: User.self)
+                    self.isIFollowing = myUser!.followingUsers.contains(self.uid)
+                    self.collectionView.reloadData()
+                } catch {
+                    self.showHUD(.error(text: error.localizedDescription))
+                }
+            } else {
+                self.showHUD(.error(text: "Document not exists"))
+            }
+        }
+    }
+    
     private func fetchPosts() {
-        let ref = Firestore.firestore().collection("posts").whereField("author.uid", isEqualTo: uid)
-        ref.getDocuments { querySnapshot, error in
+        let ref = Firestore.firestore().collection("posts")
+            .whereField("author.uid", isEqualTo: uid)
+            .order(by: "publishDate", descending: true)
+        ref.addSnapshotListener { querySnapshot, error in
             if let error = error {
                 self.showHUD(.error(text: error.localizedDescription))
                 return
@@ -106,8 +142,12 @@ class ProfileViewController: UIViewController {
     
     private func configureLayout() {
         navigationItem.title = "Profile"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "hand.wave"),
-                                                            style: .done, target: self, action: #selector(logOutDidTapped))
+        
+        let myUid = Auth.auth().currentUser?.uid ?? "1234"
+        if myUid == uid {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"),
+                                                                style: .done, target: self, action: #selector(menuDidTapped))
+        }
         
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -122,6 +162,43 @@ class ProfileViewController: UIViewController {
 
 }
 
+// MARK: - ProfileHeader Delegate
+
+extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
+    
+    func editProfileButtonAction() {
+        print("open edit file")
+    }
+    
+    func followButtonAction() {
+        let myUid = Auth.auth().currentUser?.uid ?? "123"
+        
+        guard let isIFollowing = isIFollowing else { return }
+        let changeArray = isIFollowing ? FieldValue.arrayRemove([uid]) : FieldValue.arrayUnion([uid])
+        Firestore.firestore().collection("users").document(myUid).updateData(["followingUsers": changeArray]) { error in
+            if let error = error {
+                self.showHUD(.error(text: error.localizedDescription))
+                return
+            }
+            self.incrementUsersCounters(startFollowing: !isIFollowing, myUid: myUid)
+            self.isIFollowing?.toggle()
+            self.collectionView.reloadData()
+        }
+    }
+    
+    // Helpers
+    
+    private func incrementUsersCounters(startFollowing: Bool, myUid: String) {
+        Firestore.firestore().collection("users").document(myUid)
+            .updateData(["counters.followings": FieldValue.increment(Int64(startFollowing ? 1 : -1))])
+        Firestore.firestore().collection("users").document(self.uid)
+            .updateData(["counters.followers": FieldValue.increment(Int64(startFollowing ? 1 : -1))])
+    }
+    
+}
+
+// MARK: - PostsList Delegate
+
 extension ProfileViewController: PostsListViewControllerDelegate {
     
     func updatePosts(_ posts: [Post]) {
@@ -130,6 +207,8 @@ extension ProfileViewController: PostsListViewControllerDelegate {
     }
     
 }
+
+// MARK: - CollectionView Delegate
 
 extension ProfileViewController: UICollectionViewDelegate {
     
@@ -141,6 +220,8 @@ extension ProfileViewController: UICollectionViewDelegate {
     }
     
 }
+
+// MARK: - CollectionView DataSource
 
 extension ProfileViewController: UICollectionViewDataSource {
     
@@ -164,12 +245,15 @@ extension ProfileViewController: UICollectionViewDataSource {
                                                                          withReuseIdentifier: "ProfileHeaderCollectionReusableView",
                                                                          for: indexPath) as! ProfileHeaderCollectionReusableView
         if let user = user {
-            headerView.setup(user)
+            headerView.setup(user, isIFollowing: isIFollowing)
+            headerView.delegate = self
         }
         return headerView
     }
     
 }
+
+// MARK: - CollectionView FlowLayout Delegate
 
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
     
