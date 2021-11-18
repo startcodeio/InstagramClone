@@ -36,6 +36,7 @@
 		CEE269CB2745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE269C92745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib */; };
 		CEE269CE27458C77007B40D6 /* PostListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE269CC27458C77007B40D6 /* PostListCollectionViewCell.swift */; };
 		CEE269CF27458C77007B40D6 /* PostListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE269CD27458C77007B40D6 /* PostListCollectionViewCell.xib */; };
+		CEE269D12745C31F007B40D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE269D02745C31F007B40D6 /* Post.swift */; };
 		CEE751232743E91500DF4B9D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE751212743E91500DF4B9D /* SignUpViewController.swift */; };
 		CEE751242743E91500DF4B9D /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE751222743E91500DF4B9D /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
@@ -74,6 +75,7 @@
 		CEE269C92745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
 		CEE269CC27458C77007B40D6 /* PostListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCollectionViewCell.swift; sourceTree = "<group>"; };
 		CEE269CD27458C77007B40D6 /* PostListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListCollectionViewCell.xib; sourceTree = "<group>"; };
+		CEE269D02745C31F007B40D6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CEE751212743E91500DF4B9D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEE751222743E91500DF4B9D /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				CED2820C27444069008BD056 /* User.swift */,
+				CEE269D02745C31F007B40D6 /* Post.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				CECA4F8F273FC5C200D2688E /* ForgotPasswordViewController.swift in Sources */,
 				CEE269CA2745899F007B40D6 /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */,
+				CEE269D12745C31F007B40D6 /* Post.swift in Sources */,
 				CE2527272743F33A008888AF /* AddViewController.swift in Sources */,
 				CED282102745125E008BD056 /* UIViewControllerExtention.swift in Sources */,
 				CE25271C2743F0FB008888AF /* TabbarController.swift in Sources */,
