@@ -79,6 +79,7 @@ extension PostsListViewController: PostTableViewCellDelegate {
             var mutablePost = post
             if status {
                 mutablePost.users.liked.append(Helpers.uid)
+                self.createActivity(post: post)
             } else {
                 mutablePost.users.liked.removeAll(where: { $0 == Helpers.uid })
             }
@@ -122,7 +123,24 @@ extension PostsListViewController: PostTableViewCellDelegate {
             
             self.tableView.reloadData()
         }
-        
+    }
+    
+    // Helper
+    
+    private func createActivity(post: Post) {
+        let ref = Firestore.firestore().collection("activities").document()
+        let activity = Activity(id: ref.documentID,
+                                author: Helpers.author,
+                                linkId: post.id,
+                                toUid: post.author.uid,
+                                type: ActivityType.like.rawValue,
+                                isRead: false,
+                                publishDate: Timestamp(date: Date()))
+        do {
+            try ref.setData(from: activity)
+        } catch {
+            showHUD(.error(text: "Activity not created! \(error.localizedDescription)"))
+        }
     }
     
 }
