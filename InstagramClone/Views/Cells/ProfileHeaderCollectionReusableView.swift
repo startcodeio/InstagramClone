@@ -42,8 +42,11 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     func setup(_ user: User) {
         avatarImageView.kf.setImage(with: URL(string: user.avatar))
         postsCounterLabel.text = String(user.counters.posts)
+        postsCounterLabel.textColor = user.counters.posts != 0 ? .label : .secondaryLabel
         followersCounterLabel.text = String(user.counters.followers)
+        followersCounterLabel.textColor = user.counters.followers != 0 ? .label : .secondaryLabel
         followingsCounterLabel.text = String(user.counters.followings)
+        followingsCounterLabel.textColor = user.counters.followings != 0 ? .label : .secondaryLabel
         usernameLabel.text = user.username
         bioLabel.text = user.bio
     }

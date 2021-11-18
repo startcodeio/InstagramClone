@@ -34,9 +34,11 @@
 		CED282102745125E008BD056 /* UIViewControllerExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2820F2745125E008BD056 /* UIViewControllerExtention.swift */; };
 		CEE269CA2745899F007B40D6 /* ProfileHeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE269C82745899F007B40D6 /* ProfileHeaderCollectionReusableView.swift */; };
 		CEE269CB2745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE269C92745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib */; };
-		CEE269CE27458C77007B40D6 /* PostListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE269CC27458C77007B40D6 /* PostListCollectionViewCell.swift */; };
-		CEE269CF27458C77007B40D6 /* PostListCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE269CD27458C77007B40D6 /* PostListCollectionViewCell.xib */; };
 		CEE269D12745C31F007B40D6 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE269D02745C31F007B40D6 /* Post.swift */; };
+		CEE269D42745E23A007B40D6 /* PostsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE269D22745E23A007B40D6 /* PostsListViewController.swift */; };
+		CEE269D52745E23A007B40D6 /* PostsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE269D32745E23A007B40D6 /* PostsListViewController.xib */; };
+		CEE269D82745E42B007B40D6 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE269D62745E42B007B40D6 /* PostTableViewCell.swift */; };
+		CEE269D92745E42B007B40D6 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE269D72745E42B007B40D6 /* PostTableViewCell.xib */; };
 		CEE751232743E91500DF4B9D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEE751212743E91500DF4B9D /* SignUpViewController.swift */; };
 		CEE751242743E91500DF4B9D /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEE751222743E91500DF4B9D /* SignUpViewController.xib */; };
 /* End PBXBuildFile section */
@@ -73,9 +75,11 @@
 		CED2820F2745125E008BD056 /* UIViewControllerExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtention.swift; sourceTree = "<group>"; };
 		CEE269C82745899F007B40D6 /* ProfileHeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		CEE269C92745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
-		CEE269CC27458C77007B40D6 /* PostListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostListCollectionViewCell.swift; sourceTree = "<group>"; };
-		CEE269CD27458C77007B40D6 /* PostListCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostListCollectionViewCell.xib; sourceTree = "<group>"; };
 		CEE269D02745C31F007B40D6 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CEE269D22745E23A007B40D6 /* PostsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostsListViewController.swift; sourceTree = "<group>"; };
+		CEE269D32745E23A007B40D6 /* PostsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostsListViewController.xib; sourceTree = "<group>"; };
+		CEE269D62745E42B007B40D6 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		CEE269D72745E42B007B40D6 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		CEE751212743E91500DF4B9D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CEE751222743E91500DF4B9D /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +131,8 @@
 				CE25272A2743F345008888AF /* ActivitiesViewController.xib */,
 				CE25272D2743F34F008888AF /* ProfileViewController.swift */,
 				CE25272E2743F34F008888AF /* ProfileViewController.xib */,
+				CEE269D22745E23A007B40D6 /* PostsListViewController.swift */,
+				CEE269D32745E23A007B40D6 /* PostsListViewController.xib */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -153,8 +159,8 @@
 			children = (
 				CE62A2C02744268500B17C75 /* PostGridCollectionViewCell.swift */,
 				CE62A2C12744268500B17C75 /* PostGridCollectionViewCell.xib */,
-				CEE269CC27458C77007B40D6 /* PostListCollectionViewCell.swift */,
-				CEE269CD27458C77007B40D6 /* PostListCollectionViewCell.xib */,
+				CEE269D62745E42B007B40D6 /* PostTableViewCell.swift */,
+				CEE269D72745E42B007B40D6 /* PostTableViewCell.xib */,
 				CEE269C82745899F007B40D6 /* ProfileHeaderCollectionReusableView.swift */,
 				CEE269C92745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib */,
 			);
@@ -282,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEE269D52745E23A007B40D6 /* PostsListViewController.xib in Resources */,
 				CEE751242743E91500DF4B9D /* SignUpViewController.xib in Resources */,
 				CECA4F90273FC5C200D2688E /* ForgotPasswordViewController.xib in Resources */,
 				CECA4F81273FBAB100D2688E /* LaunchScreen.storyboard in Resources */,
@@ -290,12 +297,12 @@
 				CE62A2C527442E8000B17C75 /* GoogleService-Info.plist in Resources */,
 				CE2527202743F322008888AF /* FeedViewController.xib in Resources */,
 				CE2527282743F33A008888AF /* AddViewController.xib in Resources */,
-				CEE269CF27458C77007B40D6 /* PostListCollectionViewCell.xib in Resources */,
 				CEE269CB2745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib in Resources */,
 				CECA4F7E273FBAB100D2688E /* Assets.xcassets in Resources */,
 				CE2527302743F34F008888AF /* ProfileViewController.xib in Resources */,
 				CE62A2C32744268500B17C75 /* PostGridCollectionViewCell.xib in Resources */,
 				CE25272C2743F345008888AF /* ActivitiesViewController.xib in Resources */,
+				CEE269D92745E42B007B40D6 /* PostTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,11 +360,12 @@
 				CEE269CA2745899F007B40D6 /* ProfileHeaderCollectionReusableView.swift in Sources */,
 				CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */,
 				CEE269D12745C31F007B40D6 /* Post.swift in Sources */,
+				CEE269D82745E42B007B40D6 /* PostTableViewCell.swift in Sources */,
 				CE2527272743F33A008888AF /* AddViewController.swift in Sources */,
 				CED282102745125E008BD056 /* UIViewControllerExtention.swift in Sources */,
 				CE25271C2743F0FB008888AF /* TabbarController.swift in Sources */,
+				CEE269D42745E23A007B40D6 /* PostsListViewController.swift in Sources */,
 				CECA4F77273FBAAE00D2688E /* SceneDelegate.swift in Sources */,
-				CEE269CE27458C77007B40D6 /* PostListCollectionViewCell.swift in Sources */,
 				CECA4F8A273FBC7900D2688E /* SignInViewController.swift in Sources */,
 				CE25272F2743F34F008888AF /* ProfileViewController.swift in Sources */,
 				CE2527232743F330008888AF /* InterestingViewController.swift in Sources */,

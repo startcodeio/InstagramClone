@@ -65,13 +65,31 @@ class InterestingViewController: UIViewController {
 
 }
 
-extension InterestingViewController: UICollectionViewDelegate {
+// MARK: - PostsList Delegate
+
+extension InterestingViewController: PostsListViewControllerDelegate {
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+    func updatePosts(_ posts: [Post]) {
+        self.posts = posts
+        collectionView.reloadData()
     }
     
 }
+
+// MARK: - CollectionView Delegate
+
+extension InterestingViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = PostsListViewController(posts: posts)
+        vc.delegate = self
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+// MARK: - CollectionView DataSource
 
 extension InterestingViewController: UICollectionViewDataSource {
     
@@ -91,6 +109,8 @@ extension InterestingViewController: UICollectionViewDataSource {
     }
     
 }
+
+// MARK: - CollectionView FlowLayout Delegate
 
 extension InterestingViewController: UICollectionViewDelegateFlowLayout {
     

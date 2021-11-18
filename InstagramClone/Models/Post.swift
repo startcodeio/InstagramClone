@@ -13,20 +13,15 @@ struct Post: Codable {
     let image: String
     let description: String
     let author: Author
-    let counters: PostCounters = PostCounters()
-    let users: PostUsers = PostUsers()
-    let location: GeoPoint? = nil
+    var users: PostUsers = PostUsers()
+    var location: GeoPoint? = nil
     let publishDate: Timestamp
 }
 
-struct PostCounters: Codable {
-    let likes: Int = 0
-    let comments: Int = 0
-}
-
 struct PostUsers: Codable {
-    let commented: [String] = []
-    let saved: [String] = []
+    var liked: [String] = []
+    var commented: [String] = []
+    var saved: [String] = []
 }
 
 struct Author: Codable {

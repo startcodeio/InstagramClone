@@ -122,10 +122,22 @@ class ProfileViewController: UIViewController {
 
 }
 
+extension ProfileViewController: PostsListViewControllerDelegate {
+    
+    func updatePosts(_ posts: [Post]) {
+        self.posts = posts
+        collectionView.reloadData()
+    }
+    
+}
+
 extension ProfileViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
+        let vc = PostsListViewController(posts: posts)
+        vc.delegate = self
+        vc.hidesBottomBarWhenPushed = true
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
