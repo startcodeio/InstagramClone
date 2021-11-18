@@ -50,6 +50,7 @@ class PostTableViewCell: UITableViewCell {
         avatarImageView.layer.cornerRadius = 16
         avatarImageView.kf.indicatorType = .activity
         postImageView.kf.indicatorType = .activity
+        usernameLabel.font = UIFont.systemFont(ofSize: usernameLabel.font.pointSize, weight: .semibold)
         
         avatarImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(avatarDidTapped)))
         let doubleTap = UITapGestureRecognizer(target: self, action: #selector(likeDidTapped))
