@@ -15,6 +15,8 @@ class InterestingViewController: UIViewController {
     private var posts: [Post] = []
     
     // MARK: - Views
+    
+    private let refreshControl = UIRefreshControl()
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -26,6 +28,14 @@ class InterestingViewController: UIViewController {
         fetchPosts()
     }
     
+    // MARK: - Actions
+    
+    @objc
+    private func refreshControlDidChanged() {
+        posts = []
+        fetchPosts()
+    }
+    
     // MARK: - Methods
     
     private func fetchPosts() {
@@ -34,11 +44,13 @@ class InterestingViewController: UIViewController {
         ref.getDocuments { querySnapshot, error in
             if let error = error {
                 self.showHUD(.error(text: error.localizedDescription))
+                self.refreshControl.endRefreshing()
                 return
             }
             
             guard let documents = querySnapshot?.documents else {
                 self.showHUD(.error(text: "Documents not found"))
+                self.refreshControl.endRefreshing()
                 return
             }
             
@@ -50,6 +62,7 @@ class InterestingViewController: UIViewController {
                     print("error with \(document.documentID) \(error)")
                 }
             }
+            self.refreshControl.endRefreshing()
             self.collectionView.reloadData()
         }
     }
@@ -62,6 +75,8 @@ class InterestingViewController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "PostGridCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostGridCollectionViewCell")
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshControlDidChanged), for: .valueChanged)
     }
 
 }

@@ -22,6 +22,8 @@ class ProfileViewController: UIViewController {
     private var isIFollowing: Bool?
     
     // MARK: - Views
+    
+    private let refreshControl = UIRefreshControl()
 
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -62,6 +64,13 @@ class ProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
 
         navigationController?.present(alert, animated: true)
+    }
+    
+    @objc
+    private func refreshControlChanged() {
+        DispatchQueue.main.asyncAfter(deadline: (.now() + 0.5)) { [weak self] in
+            self?.refreshControl.endRefreshing()
+        }
     }
     
     // MARK: - Methods
@@ -158,6 +167,8 @@ class ProfileViewController: UIViewController {
                                 forCellWithReuseIdentifier: "PostGridCollectionViewCell")
         collectionView.register(UINib(nibName: "PostListCollectionViewCell", bundle: nil),
                                 forCellWithReuseIdentifier: "PostListCollectionViewCell")
+        collectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshControlChanged), for: .valueChanged)
     }
 
 }
