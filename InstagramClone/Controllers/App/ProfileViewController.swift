@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
         fetchPosts()
     }
     
-    init(uid: String = Auth.auth().currentUser?.uid ?? "123") {
+    init(uid: String = Helpers.uid) {
         self.uid = uid
         super.init(nibName: nil, bundle: nil)
     }
@@ -98,8 +98,7 @@ class ProfileViewController: UIViewController {
     }
     
     private func fetchMyUser() {
-        let myUid = Auth.auth().currentUser?.uid ?? "123"
-        let ref = Firestore.firestore().collection("users").document(myUid)
+        let ref = Firestore.firestore().collection("users").document(Helpers.uid)
         ref.getDocument { document, error in
             if let error = error {
                 self.showHUD(.error(text: error.localizedDescription))
@@ -152,8 +151,7 @@ class ProfileViewController: UIViewController {
     private func configureLayout() {
         navigationItem.title = "Profile"
         
-        let myUid = Auth.auth().currentUser?.uid ?? "1234"
-        if myUid == uid {
+        if Helpers.uid == uid {
             navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "gear"),
                                                                 style: .done, target: self, action: #selector(menuDidTapped))
         }
@@ -182,16 +180,14 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
     }
     
     func followButtonAction() {
-        let myUid = Auth.auth().currentUser?.uid ?? "123"
-        
         guard let isIFollowing = isIFollowing else { return }
         let changeArray = isIFollowing ? FieldValue.arrayRemove([uid]) : FieldValue.arrayUnion([uid])
-        Firestore.firestore().collection("users").document(myUid).updateData(["followingUsers": changeArray]) { error in
+        Firestore.firestore().collection("users").document(Helpers.uid).updateData(["followingUsers": changeArray]) { error in
             if let error = error {
                 self.showHUD(.error(text: error.localizedDescription))
                 return
             }
-            self.incrementUsersCounters(startFollowing: !isIFollowing, myUid: myUid)
+            self.incrementUsersCounters(startFollowing: !isIFollowing)
             self.isIFollowing?.toggle()
             self.collectionView.reloadData()
         }
@@ -199,10 +195,10 @@ extension ProfileViewController: ProfileHeaderCollectionReusableViewDelegate {
     
     // Helpers
     
-    private func incrementUsersCounters(startFollowing: Bool, myUid: String) {
-        Firestore.firestore().collection("users").document(myUid)
+    private func incrementUsersCounters(startFollowing: Bool) {
+        Firestore.firestore().collection("users").document(Helpers.uid)
             .updateData(["counters.followings": FieldValue.increment(Int64(startFollowing ? 1 : -1))])
-        Firestore.firestore().collection("users").document(self.uid)
+        Firestore.firestore().collection("users").document(uid)
             .updateData(["counters.followers": FieldValue.increment(Int64(startFollowing ? 1 : -1))])
     }
     

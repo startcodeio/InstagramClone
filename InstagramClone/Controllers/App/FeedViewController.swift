@@ -54,6 +54,10 @@ class FeedViewController: UIViewController {
     private func fetchPosts() {
         followingUsers = Array(followingUsers.prefix(10))
         
+        if followingUsers.isEmpty {
+            return
+        }
+        
         Firestore.firestore().collection("posts").whereField("author.uid", in: followingUsers)
             .getDocuments { querySnapshot, error in
             if let error = error {
@@ -82,14 +86,7 @@ class FeedViewController: UIViewController {
     }
     
     private func getMyUser(completion: @escaping(User?) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            showHUD(.error(text: "Your user uid not found"))
-            completion(nil)
-            return
-        }
-        
-        let ref = Firestore.firestore().collection("users").document(uid)
-        ref.getDocument { document, error in
+        Firestore.firestore().collection("users").document(Helpers.uid).getDocument { document, error in
             if let error = error {
                 self.showHUD(.error(text: error.localizedDescription))
                 completion(nil)
@@ -123,9 +120,8 @@ extension FeedViewController: PostTableViewCellDelegate {
     }
     
     func likeAction(post: Post, status: Bool) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Firestore.firestore().collection("posts").document(post.id)
-        let changeArray = status ? FieldValue.arrayUnion([uid]) : FieldValue.arrayRemove([uid])
+        let changeArray = status ? FieldValue.arrayUnion([Helpers.uid]) : FieldValue.arrayRemove([Helpers.uid])
         
         ref.updateData(["users.liked": changeArray]) { error in
             if let error = error {
@@ -135,9 +131,9 @@ extension FeedViewController: PostTableViewCellDelegate {
             
             var mutablePost = post
             if status {
-                mutablePost.users.liked.append(uid)
+                mutablePost.users.liked.append(Helpers.uid)
             } else {
-                mutablePost.users.liked.removeAll(where: { $0 == uid })
+                mutablePost.users.liked.removeAll(where: { $0 == Helpers.uid })
             }
             
             for (index, model) in self.posts.enumerated() {
@@ -155,9 +151,8 @@ extension FeedViewController: PostTableViewCellDelegate {
     }
     
     func saveAction(post: Post, status: Bool) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Firestore.firestore().collection("posts").document(post.id)
-        let changeArray = status ? FieldValue.arrayUnion([uid]) : FieldValue.arrayRemove([uid])
+        let changeArray = status ? FieldValue.arrayUnion([Helpers.uid]) : FieldValue.arrayRemove([Helpers.uid])
         
         ref.updateData(["users.saved": changeArray]) { error in
             if let error = error {
@@ -167,9 +162,9 @@ extension FeedViewController: PostTableViewCellDelegate {
             
             var mutablePost = post
             if status {
-                mutablePost.users.saved.append(uid)
+                mutablePost.users.saved.append(Helpers.uid)
             } else {
-                mutablePost.users.saved.removeAll(where: { $0 == uid })
+                mutablePost.users.saved.removeAll(where: { $0 == Helpers.uid })
             }
             
             for (index, model) in self.posts.enumerated() {

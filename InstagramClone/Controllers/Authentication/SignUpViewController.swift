@@ -122,12 +122,20 @@ class SignUpViewController: UIViewController {
     private func saveUserInFirestore(_ user: User) {
         do {
             try Firestore.firestore().collection("users").document(user.uid).setData(from: user)
+            locallySaveUsernameAndAvatar(user)
             SVProgressHUD.dismiss()
             dismiss(animated: true)
             delegate?.signUpSuccessfully()
         } catch let error {
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }
+    }
+    
+    private func locallySaveUsernameAndAvatar(_ user: User) {
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequest?.displayName = user.username
+        changeRequest?.photoURL = URL(string: user.avatar)
+        changeRequest?.commitChanges { _ in }
     }
     
     private func presentAlert() {

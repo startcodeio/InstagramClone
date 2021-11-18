@@ -67,9 +67,8 @@ extension PostsListViewController: PostTableViewCellDelegate {
     }
     
     func likeAction(post: Post, status: Bool) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Firestore.firestore().collection("posts").document(post.id)
-        let changeArray = status ? FieldValue.arrayUnion([uid]) : FieldValue.arrayRemove([uid])
+        let changeArray = status ? FieldValue.arrayUnion([Helpers.uid]) : FieldValue.arrayRemove([Helpers.uid])
         
         ref.updateData(["users.liked": changeArray]) { error in
             if let error = error {
@@ -79,9 +78,9 @@ extension PostsListViewController: PostTableViewCellDelegate {
             
             var mutablePost = post
             if status {
-                mutablePost.users.liked.append(uid)
+                mutablePost.users.liked.append(Helpers.uid)
             } else {
-                mutablePost.users.liked.removeAll(where: { $0 == uid })
+                mutablePost.users.liked.removeAll(where: { $0 == Helpers.uid })
             }
             
             for (index, model) in self.posts.enumerated() {
@@ -99,9 +98,8 @@ extension PostsListViewController: PostTableViewCellDelegate {
     }
     
     func saveAction(post: Post, status: Bool) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Firestore.firestore().collection("posts").document(post.id)
-        let changeArray = status ? FieldValue.arrayUnion([uid]) : FieldValue.arrayRemove([uid])
+        let changeArray = status ? FieldValue.arrayUnion([Helpers.uid]) : FieldValue.arrayRemove([Helpers.uid])
         
         ref.updateData(["users.saved": changeArray]) { error in
             if let error = error {
@@ -111,9 +109,9 @@ extension PostsListViewController: PostTableViewCellDelegate {
             
             var mutablePost = post
             if status {
-                mutablePost.users.saved.append(uid)
+                mutablePost.users.saved.append(Helpers.uid)
             } else {
-                mutablePost.users.saved.removeAll(where: { $0 == uid })
+                mutablePost.users.saved.removeAll(where: { $0 == Helpers.uid })
             }
             
             for (index, model) in self.posts.enumerated() {

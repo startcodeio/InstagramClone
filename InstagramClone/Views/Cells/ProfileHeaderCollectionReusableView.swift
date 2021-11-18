@@ -58,9 +58,8 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     // MARK: - Actions
     
     @IBAction func primaryButtonDidTapped(_ sender: Any) {
-        guard let user = user,
-              let myUid = Auth.auth().currentUser?.uid else { return }
-        if user.uid == myUid {
+        guard let user = user else { return }
+        if user.uid == Helpers.uid {
             delegate?.editProfileButtonAction()
         } else {
             delegate?.followButtonAction()
@@ -84,8 +83,7 @@ class ProfileHeaderCollectionReusableView: UICollectionReusableView {
     }
     
     private func setupPrimaryButton(uid: String, isIFollowing: Bool?) {
-        let myUid = Auth.auth().currentUser?.uid ?? "123"
-        let isMe = uid == myUid
+        let isMe = uid == Helpers.uid
         if isMe {
             primaryButton.setTitle("Edit profile", for: .normal)
         } else {

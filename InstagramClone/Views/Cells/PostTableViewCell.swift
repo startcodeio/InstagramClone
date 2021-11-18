@@ -70,10 +70,9 @@ class PostTableViewCell: UITableViewCell {
     }
     
     @objc private func likeDidTapped() {
-        guard let post = post,
-              let uid = Auth.auth().currentUser?.uid else { return }
+        guard let post = post else { return }
         
-        delegate?.likeAction(post: post, status: !post.users.liked.contains(uid))
+        delegate?.likeAction(post: post, status: !post.users.liked.contains(Helpers.uid))
     }
     
     @objc private func commentDidTapped() {
@@ -83,10 +82,9 @@ class PostTableViewCell: UITableViewCell {
     
     @objc
     private func saveDidTapped() {
-        guard let post = post,
-              let uid = Auth.auth().currentUser?.uid else { return }
+        guard let post = post else { return }
         
-        delegate?.saveAction(post: post, status: !post.users.saved.contains(uid))
+        delegate?.saveAction(post: post, status: !post.users.saved.contains(Helpers.uid))
     }
     
     // MARK: - Methods
@@ -99,12 +97,10 @@ class PostTableViewCell: UITableViewCell {
         infoLabel.text = "\(post.users.liked.count) likes and \(post.users.commented.count) comments"
         descriptionLabel.text = post.description
         
-        let uid = Auth.auth().currentUser?.uid ?? "123"
-        
-        let isILiked = post.users.liked.contains(uid)
+        let isILiked = post.users.liked.contains(Helpers.uid)
         likeImageView.image = UIImage(systemName: isILiked ? "heart.fill" : "heart")
         
-        let isISaved = post.users.saved.contains(uid)
+        let isISaved = post.users.saved.contains(Helpers.uid)
         savedImageView.image = UIImage(systemName: isISaved ? "bookmark.fill" : "bookmark")
     }
     

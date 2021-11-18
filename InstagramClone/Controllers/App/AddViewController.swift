@@ -55,21 +55,16 @@ class AddViewController: UIViewController {
         
         let ref = Firestore.firestore().collection("posts").document()
         
-        getMyUser { user in
-            guard let user = user else { return }
             
-            self.saveImage(id: ref.documentID, imageData: compressedImage) { imageURL in
-                let post = Post(
-                    id: ref.documentID,
-                    image: imageURL,
-                    description: self.textView.text,
-                    author: Author(uid: user.uid,
-                                   username: user.username,
-                                   avatar: user.avatar),
-                    publishDate: Timestamp(date: Date())
-                )
-                self.savePostToFirestore(post, to: ref)
-            }
+        self.saveImage(id: ref.documentID, imageData: compressedImage) { imageURL in
+            let post = Post(
+                id: ref.documentID,
+                image: imageURL,
+                description: self.textView.text,
+                author: Helpers.author,
+                publishDate: Timestamp(date: Date())
+            )
+            self.savePostToFirestore(post, to: ref)
         }
     }
     
@@ -113,35 +108,6 @@ class AddViewController: UIViewController {
                 }
             })
         })
-    }
-    
-    private func getMyUser(completion: @escaping(User?) -> Void) {
-        guard let uid = Auth.auth().currentUser?.uid else {
-            showHUD(.error(text: "Your user uid not found"))
-            completion(nil)
-            return
-        }
-        
-        let ref = Firestore.firestore().collection("users").document(uid)
-        ref.getDocument { document, error in
-            if let error = error {
-                self.showHUD(.error(text: error.localizedDescription))
-                completion(nil)
-            }
-            
-            if let document = document, document.exists {
-                do {
-                    let user = try document.data(as: User.self)
-                    completion(user)
-                } catch {
-                    self.showHUD(.error(text: error.localizedDescription))
-                    completion(nil)
-                }
-            } else {
-                self.showHUD(.error(text: "User not found"))
-                completion(nil)
-            }
-        }
     }
     
     private func incrementUserPostsCounter(_ uid: String) {

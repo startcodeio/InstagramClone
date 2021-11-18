@@ -10,6 +10,9 @@
 		3E9BA7CDB77AFA55137D2D32 /* Pods_InstagramClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C419BB54F19CFBFB19C99643 /* Pods_InstagramClone.framework */; };
 		CE08BD3E2746A7760028B024 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08BD3D2746A7760028B024 /* Author.swift */; };
 		CE08BD402746A7830028B024 /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08BD3F2746A7830028B024 /* Activity.swift */; };
+		CE08BD432746B9D50028B024 /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08BD412746B9D50028B024 /* ActivityTableViewCell.swift */; };
+		CE08BD442746B9D50028B024 /* ActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE08BD422746B9D50028B024 /* ActivityTableViewCell.xib */; };
+		CE08BD462746C2270028B024 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE08BD452746C2270028B024 /* Helpers.swift */; };
 		CE25271C2743F0FB008888AF /* TabbarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25271B2743F0FB008888AF /* TabbarController.swift */; };
 		CE25271F2743F322008888AF /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE25271D2743F322008888AF /* FeedViewController.swift */; };
 		CE2527202743F322008888AF /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE25271E2743F322008888AF /* FeedViewController.xib */; };
@@ -51,6 +54,9 @@
 		C419BB54F19CFBFB19C99643 /* Pods_InstagramClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE08BD3D2746A7760028B024 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
 		CE08BD3F2746A7830028B024 /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		CE08BD412746B9D50028B024 /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		CE08BD422746B9D50028B024 /* ActivityTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityTableViewCell.xib; sourceTree = "<group>"; };
+		CE08BD452746C2270028B024 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		CE25271B2743F0FB008888AF /* TabbarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarController.swift; sourceTree = "<group>"; };
 		CE25271D2743F322008888AF /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		CE25271E2743F322008888AF /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
@@ -167,6 +173,8 @@
 				CEE269D72745E42B007B40D6 /* PostTableViewCell.xib */,
 				CEE269C82745899F007B40D6 /* ProfileHeaderCollectionReusableView.swift */,
 				CEE269C92745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib */,
+				CE08BD412746B9D50028B024 /* ActivityTableViewCell.swift */,
+				CE08BD422746B9D50028B024 /* ActivityTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -230,6 +238,7 @@
 			isa = PBXGroup;
 			children = (
 				CED2820F2745125E008BD056 /* UIViewControllerExtention.swift */,
+				CE08BD452746C2270028B024 /* Helpers.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -304,6 +313,7 @@
 				CE2527202743F322008888AF /* FeedViewController.xib in Resources */,
 				CE2527282743F33A008888AF /* AddViewController.xib in Resources */,
 				CEE269CB2745899F007B40D6 /* ProfileHeaderCollectionReusableView.xib in Resources */,
+				CE08BD442746B9D50028B024 /* ActivityTableViewCell.xib in Resources */,
 				CECA4F7E273FBAB100D2688E /* Assets.xcassets in Resources */,
 				CE2527302743F34F008888AF /* ProfileViewController.xib in Resources */,
 				CE62A2C32744268500B17C75 /* PostGridCollectionViewCell.xib in Resources */,
@@ -372,9 +382,11 @@
 				CED282102745125E008BD056 /* UIViewControllerExtention.swift in Sources */,
 				CE25271C2743F0FB008888AF /* TabbarController.swift in Sources */,
 				CE08BD402746A7830028B024 /* Activity.swift in Sources */,
+				CE08BD432746B9D50028B024 /* ActivityTableViewCell.swift in Sources */,
 				CEE269D42745E23A007B40D6 /* PostsListViewController.swift in Sources */,
 				CECA4F77273FBAAE00D2688E /* SceneDelegate.swift in Sources */,
 				CECA4F8A273FBC7900D2688E /* SignInViewController.swift in Sources */,
+				CE08BD462746C2270028B024 /* Helpers.swift in Sources */,
 				CE25272F2743F34F008888AF /* ProfileViewController.swift in Sources */,
 				CE2527232743F330008888AF /* InterestingViewController.swift in Sources */,
 				CE62A2C22744268500B17C75 /* PostGridCollectionViewCell.swift in Sources */,
