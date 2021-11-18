@@ -84,11 +84,17 @@ class AddViewController: UIViewController {
         do {
             try ref.setData(from: post)
             incrementUserPostsCounter(post.author.uid)
+            removeFillData()
             showHUD(.success(text: "Post successfully created!"))
             tabBarController?.selectedIndex = 4
         } catch {
             showHUD(.error(text: error.localizedDescription))
         }
+    }
+    
+    private func removeFillData() {
+        imageView.image = UIImage(systemName: "camera")
+        textView.text = "Write a caption..."
     }
     
     private func saveImage(id: String, imageData: Data, completion: @escaping(String) -> Void) {
