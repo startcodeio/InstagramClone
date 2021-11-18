@@ -20,15 +20,15 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mDD-Wq-ZEU">
-                    <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mDD-Wq-ZEU">
+                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mDD-Wq-ZEU" secondAttribute="bottom" id="O9B-fz-LSm"/>
+                <constraint firstAttribute="bottom" secondItem="mDD-Wq-ZEU" secondAttribute="bottom" id="O9B-fz-LSm"/>
                 <constraint firstItem="mDD-Wq-ZEU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Rva-1g-djH"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mDD-Wq-ZEU" secondAttribute="trailing" id="Te2-hO-0BS"/>
                 <constraint firstItem="mDD-Wq-ZEU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="lyr-52-xew"/>
