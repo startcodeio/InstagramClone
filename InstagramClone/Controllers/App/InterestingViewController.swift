@@ -81,7 +81,7 @@ extension InterestingViewController: PostsListViewControllerDelegate {
 extension InterestingViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = PostsListViewController(posts: posts)
+        let vc = PostsListViewController(posts: posts, indexPath: indexPath)
         vc.delegate = self
         vc.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(vc, animated: true)

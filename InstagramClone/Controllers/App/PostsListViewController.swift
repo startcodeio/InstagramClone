@@ -19,6 +19,8 @@ class PostsListViewController: UIViewController {
     
     private var posts: [Post] = []
     
+    private let showIndexPath: IndexPath
+    
     weak var delegate: PostsListViewControllerDelegate?
     
     // MARK: - Views
@@ -27,8 +29,9 @@ class PostsListViewController: UIViewController {
     
     // MARK: - LifeCycle
     
-    init(posts: [Post]) {
+    init(posts: [Post], indexPath: IndexPath) {
         self.posts = posts
+        self.showIndexPath = indexPath
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -48,6 +51,7 @@ class PostsListViewController: UIViewController {
         tableView.dataSource = self
         tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil),
                            forCellReuseIdentifier: "PostTableViewCell")
+        tableView.scrollToRow(at: showIndexPath, at: .top, animated: false)
     }
 
 }
