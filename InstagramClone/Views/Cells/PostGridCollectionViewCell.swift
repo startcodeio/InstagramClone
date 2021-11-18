@@ -7,13 +7,18 @@
 
 import UIKit
 
-class PostCollectionViewCell: UICollectionViewCell {
+class PostGridCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var imageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        backgroundColor = .green
+        
+        imageView.kf.indicatorType = .activity
+    }
+    
+    func setup(_ post: Post) {
+        imageView.kf.setImage(with: URL(string: post.image))
     }
 
 }

@@ -6,20 +6,61 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class InterestingViewController: UIViewController {
+    
+    // MARK: - Data
+    
+    private var posts: [Post] = []
+    
+    // MARK: - Views
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    // MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        collectionView.register(UINib(nibName: "PostCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostCollectionViewCell")
+        configureLayout()
+        fetchPosts()
+    }
+    
+    // MARK: - Methods
+    
+    private func fetchPosts() {
+        let ref = Firestore.firestore().collection("posts")
+        ref.getDocuments { querySnapshot, error in
+            if let error = error {
+                self.showHUD(.error(text: error.localizedDescription))
+                return
+            }
+            
+            guard let documents = querySnapshot?.documents else {
+                self.showHUD(.error(text: "Documents not found"))
+                return
+            }
+            
+            for document in documents {
+                do {
+                    let post = try document.data(as: Post.self)
+                    self.posts.append(post!)
+                } catch {
+                    print("error with \(document.documentID) \(error)")
+                }
+            }
+            self.collectionView.reloadData()
+        }
+    }
+    
+    // MARK: - Layout
+    
+    private func configureLayout() {
+        navigationItem.title = "Interesting"
         
         collectionView.delegate = self
         collectionView.dataSource = self
-
-        navigationItem.title = "Interesting"
+        collectionView.register(UINib(nibName: "PostGridCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostGridCollectionViewCell")
     }
 
 }
@@ -35,11 +76,17 @@ extension InterestingViewController: UICollectionViewDelegate {
 extension InterestingViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        30
+        posts.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostCollectionViewCell", for: indexPath) as! PostCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PostGridCollectionViewCell", for: indexPath) as! PostGridCollectionViewCell
+        
+        if posts.count > indexPath.row {
+            let post = posts[indexPath.row]
+            cell.setup(post)
+        }
+        
         return cell
     }
     
