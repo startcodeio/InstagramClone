@@ -23,9 +23,3 @@ struct PostUsers: Codable {
     var commented: [String] = []
     var saved: [String] = []
 }
-
-struct Author: Codable {
-    let uid: String
-    let username: String
-    let avatar: String
-}
