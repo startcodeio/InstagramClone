@@ -27,6 +27,7 @@
 		CE62A2C22744268500B17C75 /* PostGridCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE62A2C02744268500B17C75 /* PostGridCollectionViewCell.swift */; };
 		CE62A2C32744268500B17C75 /* PostGridCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE62A2C12744268500B17C75 /* PostGridCollectionViewCell.xib */; };
 		CE62A2C527442E8000B17C75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE62A2C427442E8000B17C75 /* GoogleService-Info.plist */; };
+		CEA0143A274803FC00515769 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA01439274803FC00515769 /* EmptyView.swift */; };
 		CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F74273FBAAE00D2688E /* AppDelegate.swift */; };
 		CECA4F77273FBAAE00D2688E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CECA4F76273FBAAE00D2688E /* SceneDelegate.swift */; };
 		CECA4F7E273FBAB100D2688E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CECA4F7D273FBAB100D2688E /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		CE62A2C02744268500B17C75 /* PostGridCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGridCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE62A2C12744268500B17C75 /* PostGridCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostGridCollectionViewCell.xib; sourceTree = "<group>"; };
 		CE62A2C427442E8000B17C75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CEA01439274803FC00515769 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
 		CECA4F71273FBAAE00D2688E /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CECA4F74273FBAAE00D2688E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CECA4F76273FBAAE00D2688E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				CE62A2BF2744266B00B17C75 /* Cells */,
+				CEA01439274803FC00515769 /* EmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -375,6 +378,7 @@
 				CED2820D27444069008BD056 /* User.swift in Sources */,
 				CECA4F8F273FC5C200D2688E /* ForgotPasswordViewController.swift in Sources */,
 				CEE269CA2745899F007B40D6 /* ProfileHeaderCollectionReusableView.swift in Sources */,
+				CEA0143A274803FC00515769 /* EmptyView.swift in Sources */,
 				CECA4F75273FBAAE00D2688E /* AppDelegate.swift in Sources */,
 				CEE269D12745C31F007B40D6 /* Post.swift in Sources */,
 				CEE269D82745E42B007B40D6 /* PostTableViewCell.swift in Sources */,

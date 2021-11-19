@@ -13,7 +13,7 @@ class FeedViewController: UIViewController {
     
     // MARK: - Data
     
-    private var posts: [Post] = []
+    private var models: [Post] = []
     
     private var followingUsers: [String] = []
     
@@ -23,29 +23,25 @@ class FeedViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private let emptyView = EmptyView(type: .feed)
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configureLayout()
         
         getMyUser { user in
             self.followingUsers = user?.followingUsers ?? []
             self.fetchPosts()
         }
-
-        navigationItem.title = "Feed"
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "PostTableViewCell")
-        tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshControlDidChanged), for: .valueChanged)
     }
     
     // MARK: - Actions
     
     @objc
     private func refreshControlDidChanged() {
-        posts = []
+        models = []
         fetchPosts()
     }
     
@@ -55,6 +51,7 @@ class FeedViewController: UIViewController {
         followingUsers = Array(followingUsers.prefix(10))
         
         if followingUsers.isEmpty {
+            emptyView.isHidden = false
             return
         }
         
@@ -75,7 +72,7 @@ class FeedViewController: UIViewController {
             for document in documents {
                 do {
                     let post = try document.data(as: Post.self)
-                    self.posts.append(post!)
+                    self.models.append(post!)
                 } catch {
                     print("error with \(document.documentID) \(error)")
                 }
@@ -105,6 +102,28 @@ class FeedViewController: UIViewController {
                 completion(nil)
             }
         }
+    }
+    
+    // MARK: - Layout
+    
+    private func configureLayout() {
+        navigationItem.title = "Feed"
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "PostTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: "PostTableViewCell")
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshControlDidChanged), for: .valueChanged)
+        
+        view.addSubview(emptyView)
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            .isActive = true
+        emptyView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+            .isActive = true
+        emptyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            .isActive = true
+        emptyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            .isActive = true
     }
 
 }
@@ -137,9 +156,9 @@ extension FeedViewController: PostTableViewCellDelegate {
                 mutablePost.users.liked.removeAll(where: { $0 == Helpers.uid })
             }
             
-            for (index, model) in self.posts.enumerated() {
+            for (index, model) in self.models.enumerated() {
                 if model.id == post.id {
-                    self.posts[index] = mutablePost
+                    self.models[index] = mutablePost
                 }
             }
             
@@ -168,9 +187,9 @@ extension FeedViewController: PostTableViewCellDelegate {
                 mutablePost.users.saved.removeAll(where: { $0 == Helpers.uid })
             }
             
-            for (index, model) in self.posts.enumerated() {
+            for (index, model) in self.models.enumerated() {
                 if model.id == post.id {
-                    self.posts[index] = mutablePost
+                    self.models[index] = mutablePost
                 }
             }
             
@@ -203,13 +222,13 @@ extension FeedViewController: PostTableViewCellDelegate {
 extension FeedViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        posts.count
+        models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PostTableViewCell") as! PostTableViewCell
-        if posts.count > indexPath.row {
-            let post = posts[indexPath.row]
+        if models.count > indexPath.row {
+            let post = models[indexPath.row]
             cell.setup(post)
             cell.delegate = self
         }

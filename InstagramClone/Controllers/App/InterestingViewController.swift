@@ -20,6 +20,8 @@ class InterestingViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     
+    private let emptyView = EmptyView(type: .interesting)
+    
     // MARK: - LifeCycle
     
     override func viewDidLoad() {
@@ -64,6 +66,10 @@ class InterestingViewController: UIViewController {
             }
             self.refreshControl.endRefreshing()
             self.collectionView.reloadData()
+            
+            if self.posts.isEmpty {
+                self.emptyView.isHidden = false
+            }
         }
     }
     
@@ -77,6 +83,17 @@ class InterestingViewController: UIViewController {
         collectionView.register(UINib(nibName: "PostGridCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "PostGridCollectionViewCell")
         collectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshControlDidChanged), for: .valueChanged)
+        
+        view.addSubview(emptyView)
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            .isActive = true
+        emptyView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+            .isActive = true
+        emptyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            .isActive = true
+        emptyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            .isActive = true
     }
 
 }

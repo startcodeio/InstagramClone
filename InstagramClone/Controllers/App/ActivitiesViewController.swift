@@ -20,17 +20,14 @@ class ActivitiesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
+    private let emptyView = EmptyView(type: .activities)
+    
+    // MARK: - LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        configureLayout()
         fetch()
-        navigationItem.title = "Activities"
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "ActivityTableViewCell", bundle: nil),
-                           forCellReuseIdentifier: "ActivityTableViewCell")
-        tableView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refreshControlDidChanged), for: .valueChanged)
     }
     
     // MARK: - Actions
@@ -69,7 +66,34 @@ class ActivitiesViewController: UIViewController {
             }
             self.refreshControl.endRefreshing()
             self.tableView.reloadData()
+            
+            if self.models.isEmpty {
+                self.emptyView.isHidden = false
+            }
         }
+    }
+    
+    // MARK: - Layout
+    
+    private func configureLayout() {
+        navigationItem.title = "Activities"
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "ActivityTableViewCell", bundle: nil),
+                           forCellReuseIdentifier: "ActivityTableViewCell")
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshControlDidChanged), for: .valueChanged)
+        
+        view.addSubview(emptyView)
+        emptyView.translatesAutoresizingMaskIntoConstraints = false
+        emptyView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor)
+            .isActive = true
+        emptyView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
+            .isActive = true
+        emptyView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            .isActive = true
+        emptyView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            .isActive = true
     }
     
 }

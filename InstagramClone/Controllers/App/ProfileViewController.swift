@@ -133,7 +133,7 @@ class ProfileViewController: UIViewController {
                 self.showHUD(.error(text: "Documents not found"))
                 return
             }
-            
+            self.posts = []
             for document in documents {
                 do {
                     let post = try document.data(as: Post.self)
